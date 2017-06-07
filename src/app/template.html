@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/">IT255</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li routerLink="/" [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active"><a routerLink="/">Home</a></li>
+        <li routerLink="/aboutus" routerLinkActive="active"><a
+          routerLink="/aboutus">About us</a></li>
+        <li *ngIf="isAuth == 'no'" routerLink="/register"
+            routerLinkActive="active"><a routerLink="/register">Register</a></li>
+        <li *ngIf="isAuth == 'no'" routerLink="/login" routerLinkActive="active"><a
+          routerLink="/login">Login</a></li>
+        <li *ngIf="isAuth == 'yes'" routerLink="/addbook" routerLinkActive="active"><a routerLink="/addbook">Add book</a></li>
+        <li *ngIf="isAuth == 'yes'" routerLink="/allbooks" routerLinkActive="active"><a routerLink="/allbooks">All books</a></li>
+        <li *ngIf="isAuth == 'yes'" routerLink="/deletebook" routerLinkActive="active"><a routerLink="/deletebook">Delete book</a></li>
+        <li *ngIf="isAuth == 'yes'" routerLink="/updatebook" routerLinkActive="active"><a routerLink="/updatebook">Update book</a></li>
+        <li *ngIf="isAuth == 'yes'" ><a (click)="onLogout()">Logout</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
