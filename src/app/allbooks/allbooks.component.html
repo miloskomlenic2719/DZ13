@@ -1,11 +1,23 @@
-<div class="col-lg-12">
-  <br/>Books<br/> <br/>
-  <div *ngFor="let book of data">
-    ISBN: {{book.isbn}}
-    <br/>
-    Name: {{book.name}}
-    <br/>
-    Genre: {{book.genre}}
-    <br/>
-  </div>
+<div class="col-lg-12"> <br/>Sobe<br/>    <br/>
+  <table class="table-stripped table">
+    <thead>
+    <tr>
+      <th>Ime sobe</th>
+      <th>Broj kreveta</th>
+      <th>TV</th>
+      <th>Tip sobe</th>
+      <th>Delete</th>
+      <th>View</th> </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of data">
+      <td>{{book.isbn}}</td>
+      <td>{{book.bane}}</td>
+      <td>{{book.genre}}</td>
+      <td> <button class="btn btn-danger" (click)="removeBook($event, book.id)">Delete</button> </td>
+      <td> <button class="btn btn-default" (click)="viewBook(book.id)">View</button>
+  </td>
+  </tr>
+  </tbody>
+  </table>
 </div>

@@ -28,4 +28,18 @@ export class AllBooksComponent {
       );
   }
 
+  public removeBook(event: Event, item: Number) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    headers.append('token', localStorage.getItem('token'));
+    this.http.get('http://localhost/it255-dz12/deletebook.php?id='+item,{headers:headers}) .subscribe( data => {
+      event.srcElement.parentElement.parentElement.remove();
+    });
+  }
+  public viewBook(item: Number)
+  {
+    this.router.navigate(['/book', item]);
+  }
+
+
 }
